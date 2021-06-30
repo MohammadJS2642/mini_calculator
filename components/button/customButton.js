@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 export default function MyButton(prop) {
     const { name, size, bgColor } = prop;
+    [showVal, setshowVal] = useState("");
+
     const onPressHandler = () => {
-        console.log(name);
+
     }
+
     return (
         <TouchableOpacity onPress={onPressHandler} style={
             [styles.ButtomItem, size === 'md' && {
@@ -13,9 +16,7 @@ export default function MyButton(prop) {
             }, bgColor === 'gr' && {
                 backgroundColor: 'gray',
             },]}>
-            {/* <View > */}
             <Text style={styles.ButtomText}>{name}</Text>
-            {/* </View> */}
         </TouchableOpacity>
     )
 }

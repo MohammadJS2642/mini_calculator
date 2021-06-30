@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import ButtonsPosition from './components/button/buttonsPosition'
+import Share from './components/button/buttonsPosition'
 
 export default function App() {
   return (
-    <ButtonsPosition />
+    <Share />
   );
 }
 
