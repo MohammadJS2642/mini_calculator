@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Showing from './display/display';
-import ButtonsPosition from './button/buttonsPosition'
 
 export default function Share() {
     return (
