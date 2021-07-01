@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 export default function MyButton({ name, size, bgColor, onPress }) {
     return (
-        <TouchableOpacity onPress={onPress} ref={sendName} style={
+        <TouchableOpacity onPress={onPress} style={
             [styles.ButtomItem, size === 'md' && {
                 width: 150,
             }, bgColor === 'gr' && {
