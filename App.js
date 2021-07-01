@@ -1,10 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import ButtonsPosition from './components/myButton/buttonsPosition'
+import Share from './components/share'
 
 export default function App() {
   return (
-    <ButtonsPosition />
+    <Share />
   );
 }
 
