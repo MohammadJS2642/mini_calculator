@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-export default function MyButton(prop) {
-    const { name, size, bgColor } = prop;
-    [showVal, setshowVal] = useState("");
-
-    const onPressHandler = () => {
-
-    }
-
+export default function MyButton({ name, size, bgColor, onPress }) {
     return (
-        <TouchableOpacity onPress={onPressHandler} style={
+        <TouchableOpacity onPress={onPress} ref={sendName} style={
             [styles.ButtomItem, size === 'md' && {
                 width: 150,
             }, bgColor === 'gr' && {
