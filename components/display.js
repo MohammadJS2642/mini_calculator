@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Data } from './calculating';
 
-export default function Display({ style, getVals }) {
-    const [vals, setVals] = useState('0');
+export default function Display({ style, children }) {
+    // const [textShow, setTextShow] = useState();
+    // useEffect(() => {
+    //     setTextShow(<Text style={styles.textDisplay} >{Data.currentValue}</Text>)
+    // }, [])
     return (
         <View style={[styles.displayContainrt, style]}>
-            <Text style={styles.textDisplay}>{getVals}</Text>
-        </View>
+            {/* <Text style={styles.textDisplay}>{getVals}</Text> */}
+            <Text style={styles.textDisplay}>{children}</Text>;
+            {/* {textShow} */}
+        </View >
     )
 }
 

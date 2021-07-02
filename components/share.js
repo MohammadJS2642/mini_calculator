@@ -1,12 +1,18 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, StyleSheet, Button } from 'react-native';
 import Display from './display';
 import ButtonsPosition from './buttonsPosition';
+import { Data } from './calculating';
 
 export default function Share() {
+    const [shows, setShows] = useState('0')
+    const showsRef = useRef(Data.currentValue)
+    useEffect(() => {
+        document.title = showsRef.current.valueOf(Data.currentValue)
+    })
     return (
         <View style={styles.showContainrt}>
-            <Display style={styles.displayStyle} />
+            <Display style={styles.displayStyle} >{showsRef.current}</Display>
             <ButtonsPosition style={styles.customButtonStyle} />
         </View>)
 }

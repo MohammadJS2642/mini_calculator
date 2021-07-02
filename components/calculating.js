@@ -1,4 +1,4 @@
-import { Number2 } from "./data";
+import { Numbers, Operators, Others } from "./data";
 import React from 'react';
 
 export const Data = {
@@ -8,15 +8,69 @@ export const Data = {
 };
 
 const checkingID = (userID) => {
-    Number2.forEach(index => {
+    Numbers.forEach(index => {
         if (userID === index.id) {
             Data.PreviousValue = Data.currentValue;
-            Data.currentValue = index.name;
+            if (Data.currentValue.length != 8) {
+                if (Data.currentValue === '0') {
+                    Data.currentValue = index.name.toString();
+                }
+                else {
+                    Data.currentValue += index.name.toString();
+                }
+            }
         }
         return Data;
     })
 };
 
-export function Calculating(id) {
-    checkingID(id)
+const setOperator = (userID) => {
+    Operators.forEach(index => {
+        if (userID === index.id) {
+            Data.operator = index.name;
+        }
+        return Data;
+    })
+}
+
+const setOthers = (userID) => {
+    var ch = '';
+    Others.forEach(index => {
+        if (userID === index.id) {
+            switch (index.namet) {
+                case 'AC':
+                    Data = {
+                        currentValue: '0',
+                        PreviousValue: null,
+                        operator: null,
+                    };
+                    break;
+                case 'C':
+                    return (Data = {
+                        currentValue: '0',
+                        PreviousValue: null,
+                        operator: null,
+                    });
+                case '=':
+
+                    break;
+            }
+        }
+    })
+    return Data;
+}
+
+
+export function Calculating(type, id) {
+    switch (type) {
+        case 'num':
+            checkingID(id);
+            break;
+        case 'op':
+            setOperator(id);
+            break;
+        case 'Others':
+            setOthers(id);
+            break;
+    }
 }
