@@ -7,10 +7,6 @@ import Display from './display'
 
 export default function ButtonsPosition({ style }) {
     const [val, setVal] = useState('0');
-    var d = 0;
-    useEffect(() => {
-        d = val
-    })
 
     return (
         <View style={[styles.mainContainer, style]}>
@@ -47,7 +43,7 @@ export default function ButtonsPosition({ style }) {
                 <CustomButton title={'/'} style={styles.btnPosition} bg={'gr'} />
             </View>
             <View style={styles.whereButton}>
-                <Display style={styles.displayStyle} getVals={d} />
+                <Display style={styles.displayStyle} />
             </View>
         </View>
     )

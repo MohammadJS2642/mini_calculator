@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Data } from './calculating';
 
 export default function Display({ style, getVals }) {
-    const [vals, setVals] = useState('0');
     return (
         <View style={[styles.displayContainrt, style]}>
             <Text style={styles.textDisplay}>{getVals}</Text>
