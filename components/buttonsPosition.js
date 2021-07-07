@@ -1,49 +1,51 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native'
 import { Calculating, Data } from './calculating';
 import CustomButton from './customButton';
 import Display from './display'
 
-
 export default function ButtonsPosition({ style }) {
-    const [val, setVal] = useState('0');
+    var text;
+    const getName = (e) => {
+        text = e
+    }
 
     return (
         <View style={[styles.mainContainer, style]}>
             <View style={styles.whereButton}>
-                <CustomButton title={0} style={styles.btnPosition} size={'md'} />
-                <CustomButton title={'.'} style={styles.btnPosition} />
-                <CustomButton title={"="} style={styles.btnPosition} bg={'gr'} />
+                <CustomButton title='0' onPress={(e) => { getName(e) }} style={styles.btnPosition} size={'md'} />
+                <CustomButton title={'.'} onPress={(e) => getName(e)} style={styles.btnPosition} />
+                <CustomButton title={"="} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
             </View>
             <View style={styles.whereButton}>
-                <CustomButton title={1} style={styles.btnPosition} />
-                <CustomButton title={2} style={styles.btnPosition} />
-                <CustomButton title={3} style={styles.btnPosition} />
-                <CustomButton title={'+'} style={styles.btnPosition} bg={'gr'} />
+                <CustomButton title={1} onPress={(e) => getName(e)} style={styles.btnPosition} />
+                <CustomButton title={2} onPress={(e) => getName(e)} style={styles.btnPosition} />
+                <CustomButton title={3} onPress={(e) => getName(e)} style={styles.btnPosition} />
+                <CustomButton title={'+'} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
             </View>
             <View style={styles.whereButton}>
-                <CustomButton title={4} style={styles.btnPosition} />
-                <CustomButton title={5} style={styles.btnPosition} />
-                <CustomButton title={6} style={styles.btnPosition} />
-                <CustomButton title={'-'} style={styles.btnPosition} bg={'gr'} />
+                <CustomButton title={4} onPress={(e) => getName(e)} style={styles.btnPosition} />
+                <CustomButton title={5} onPress={(e) => getName(e)} style={styles.btnPosition} />
+                <CustomButton title={6} onPress={(e) => getName(e)} style={styles.btnPosition} />
+                <CustomButton title={'-'} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
             </View>
             <View style={styles.whereButton}>
                 <CustomButton title={7} style={styles.btnPosition}
-                    onPress={() => { Calculating(7); setVal(Data.currentValue) }} />
+                    onPress={(e) => getName(e)} />
                 <CustomButton title={8} style={styles.btnPosition}
-                    onPress={() => Calculating(8)} />
+                    onPress={(e) => getName(e)} />
                 <CustomButton title={9} style={styles.btnPosition}
-                    onPress={() => Calculating(9)} />
-                <CustomButton title={'*'} style={styles.btnPosition} bg={'gr'} />
+                    onPress={(e) => getName(e)} />
+                <CustomButton title={'*'} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
             </View>
             <View style={styles.whereButton}>
-                <CustomButton title={'AC'} style={styles.btnPosition} bg={'gr'} />
-                <CustomButton title={'C'} style={styles.btnPosition} bg={'gr'} />
-                <CustomButton title={'%'} style={styles.btnPosition} bg={'gr'} />
-                <CustomButton title={'/'} style={styles.btnPosition} bg={'gr'} />
+                <CustomButton title={'AC'} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
+                <CustomButton title={'C'} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
+                <CustomButton title={'%'} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
+                <CustomButton title={'/'} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
             </View>
             <View style={styles.whereButton}>
-                <Display style={styles.displayStyle} />
+                <Display style={styles.displayStyle} getVals={text} />
             </View>
         </View>
     )
