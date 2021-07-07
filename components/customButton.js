@@ -2,12 +2,18 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 export default function CustomButton({ onPress, title, style, bg, size }) {
+    let name = title;
+
+    const setName = () => {
+        onPress(name);
+    }
+
     return (
-        <TouchableOpacity onPress={onPress}
+        <TouchableOpacity onPress={setName}
             style={[styles.buttonContainrt, style,
             bg === 'gr' && { backgroundColor: 'gray' },
             size === 'md' && { width: 180 }]}>
-            <Text style={styles.textButton}>{title}</Text>
+            <Text style={styles.textButton}>{name}</Text>
         </TouchableOpacity>
     )
 }
