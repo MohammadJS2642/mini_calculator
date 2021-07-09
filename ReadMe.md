@@ -13,13 +13,15 @@ this app created by react native
 
 [x] display should be show numbers up to 8 digits
 
-[] **AC** for clear all should be work
+[x] **AC** for clear all should be work
 
-[] **C** for clear currnet number should be work
+[x] **C** for clear currnet number should be work
+
+[x] operators must work _( + - \_ / )_
+
+[] display must shows numbers
 
 [] if one of the operators pressed that operator button get highlight
-
-[] operators should be work _( + - _ / )\*
 
 [] **responsive app for all different displays**
 
