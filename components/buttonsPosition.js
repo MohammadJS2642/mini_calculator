@@ -1,19 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { View, StyleSheet } from 'react-native'
 import { Calculating, Data } from './calculating';
 import CustomButton from './customButton';
 import Display from './display'
 
 export default function ButtonsPosition({ style }) {
+    const values = useRef(null);
     var text;
     const getName = (e) => {
         text = e
+        Calculating(e)
+        // values.current(e)
+        // console.log(values);
     }
 
     return (
-        <View style={[styles.mainContainer, style]}>
+        <View style={[styles.mainContainer, style]} >
             <View style={styles.whereButton}>
-                <CustomButton title='0' onPress={(e) => { getName(e) }} style={styles.btnPosition} size={'md'} />
+                <CustomButton title='0' onPress={(e) => { getName(e); }} style={styles.btnPosition} size={'md'} />
                 <CustomButton title={'.'} onPress={(e) => getName(e)} style={styles.btnPosition} />
                 <CustomButton title={"="} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
             </View>
@@ -44,9 +48,9 @@ export default function ButtonsPosition({ style }) {
                 <CustomButton title={'%'} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
                 <CustomButton title={'/'} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
             </View>
-            <View style={styles.whereButton}>
-                <Display style={styles.displayStyle} getVals={text} />
-            </View>
+            {/* <View style={styles.whereButton}>
+                <Display style={styles.displayStyle} getVals={values} />
+            </View> */}
         </View>
     )
 }
