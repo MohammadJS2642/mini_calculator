@@ -73,7 +73,6 @@ const calculator = (value) => {
             break;
     }
 
-    console.log(Data);
     return Data;
 }
 
