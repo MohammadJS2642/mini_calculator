@@ -1,18 +1,23 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native'
 import { Calculating, Data } from './calculating';
 import CustomButton from './customButton';
 import Display from './display'
 
 export default function ButtonsPosition({ style }) {
-    const values = useRef(null);
+    const [CurrentValue, setCurrentValue] = useState(Data.currentValue)
+    const [previousValue, setPreviousValue] = useState(Data.PreviousValue)
     var text;
+    CurrentValue !== '0' ? text = CurrentValue : text = previousValue
     const getName = (e) => {
-        text = e
         Calculating(e)
-        // values.current(e)
-        // console.log(values);
+        setCurrentValue(Data.currentValue)
+        setPreviousValue(Data.PreviousValue)
     }
+
+    useEffect(() => {
+        getName
+    })
 
     return (
         <View style={[styles.mainContainer, style]} >
@@ -48,9 +53,9 @@ export default function ButtonsPosition({ style }) {
                 <CustomButton title={'%'} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
                 <CustomButton title={'/'} onPress={(e) => getName(e)} style={styles.btnPosition} bg={'gr'} />
             </View>
-            {/* <View style={styles.whereButton}>
-                <Display style={styles.displayStyle} getVals={values} />
-            </View> */}
+            <View style={styles.whereButton}>
+                <Display style={styles.displayStyle} getVals={text} />
+            </View>
         </View>
     )
 }
