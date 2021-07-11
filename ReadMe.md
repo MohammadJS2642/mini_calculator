@@ -19,7 +19,9 @@ this app created by react native
 
 [x] operators must work _( + - \_ / )_
 
-[] display must shows numbers
+[x] display must shows numbers
+
+[] equal button must work
 
 [] if one of the operators pressed that operator button get highlight
 
